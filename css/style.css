@@ -1,0 +1,90 @@
+body {
+	width: 512px;
+	margin: 4px auto;
+	font-family: Arial;
+}
+
+label:not(#editor *) {
+	display: block;
+}
+
+input[type="number"]:not(#editor *) {
+	width: 48px;
+}
+
+#options {
+	margin-bottom: 16px;
+}
+#options.hidden {
+	display: none;
+}
+
+#advanced:not(#editor *) {
+	box-align: center;
+}
+
+#formula:not(#editor *) {
+	display: block;
+	margin: 4px 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+canvas {
+	image-rendering: pixelated;
+}
+#projects:not(#editor *){
+	background-color:#d0d0d0;
+  color: #1f1f1f;
+}
+#fps:not(#editor *){
+	font-family: monospace;
+}
+.dark:not(#editor *){
+	background-color:#303030;
+	color:white;
+}
+.dark *:not(font, font *){
+	background-color:#404040 !important;
+	color:white !important;
+}
+
+@font-face {
+    font-family: 'Fredoka One';
+    src:url('/font/fredoka_one.ttf') format('woff'),
+        url('/font/fredoka_one.ttf') format('svg'),
+        url('/font/fredoka_one.ttf'),
+        url('/font/fredoka_one.ttf') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+*:not(input){font-family: 'Fredoka One';}
+input:not(#editor *){font-family:monospace;}
+
+.buttonstop {
+  display: flex;
+}
+
+.canvas {
+  border-style: dashed;
+  border-color: #ff2162;
+  border-radius: 4px;
+}
+
+.text {
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.comptext {
+  border-radius: 4px 4px 0px 0px;
+}
+
+.desctext {
+  border-radius: 0px 4px 4px 4px;
+}
+
+.projsbody {
+  border-radius: 4px;
+}

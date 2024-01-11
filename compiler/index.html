@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head>
+		<meta charset="utf-8">
+		<title>JSArt Compiler</title>
+		<link href="css/style.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
+		<script src="js/ace.js"></script>
+		<script src="js/main.js"></script>
+		<script src="/js/theme.js"></script>
+	</head>
+	<body>
+		<div id="editor">
+			<div id="input">var xor = `(x^y)`;
+
+var xpos = `(x-128)`;
+var ypos = `(y-128)`;
+
+var circleCheck = `((${xpos}*${xpos} + ${ypos}*${ypos}) > 10000)`;
+
+var spinX = `((Math.cos(t/1000)*${xpos})+(Math.sin(t/1000)*${ypos}))`;
+var spinY = `((Math.cos(t/1000)*${ypos})+(-Math.sin(t/1000)*${xpos}))`;
+
+var spinningXor = `(${spinX} ^ ${spinY})`;
+
+return `${circleCheck} ? ${xor} : ${spinningXor}`;</div>
+			<textarea id="output" readonly></textarea>
+		</div>
+		<div id="preview">
+			<canvas id="canvas"></canvas>
+		</div>
+	
+</body></html>

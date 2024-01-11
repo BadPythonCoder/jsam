@@ -1,0 +1,38 @@
+html, body {
+	height: 100% !important;
+}
+
+body {
+	display: flex !important;
+	margin: 0 !important;
+	text-align: center !important;
+}
+
+#editor {
+	flex: 1 !important;
+	padding: 8px !important;
+	background-color: #d8d8d8;
+}
+
+#preview {
+	padding: 8px !important;
+}
+
+#input {
+	width: 100% !important;
+	height: 300px !important;
+	margin-bottom: 8px !important;
+}
+
+#output {
+	height: 100px !important;
+	display: block !important;
+	width: 100% !important;
+	margin-bottom: 8px !important;
+	resize: none !important;
+	box-sizing: border-box !important;
+}
+
+canvas {
+	image-rendering: pixelated !important;
+}

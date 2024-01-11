@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<!-- kill yourself replit -->
+<head>
+  <style>
+    .le-button {
+      color: white;
+      display: flex;
+      border: 2px solid #1f1f2e;
+      padding: 3px 3px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+  </style>
+  <meta charset="utf-8">
+  <title>JSArt Modded</title>
+  <link href="css/style.css" rel="stylesheet">
+  <!-- 		<script> -->
+  <!-- 			// let r = await fetch("https://jsam.codersquack.ml/static/lesus.json") -->
+  <!-- 			// let susdata = await r.json() -->
+  <!--  		</script>  -->
+  <script src="/js/main.js"></script>
+  <script src="/js/init.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/record.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon.ico">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+</head>
+
+<body>
+    <div id="options" class="hidden">
+      <label for="width">Width: <input id="width" type="number" value="256" class="text"></label>
+      <label for="height">Height: <input id="height" type="number" value="256" class="text"></label>
+      <label for="length" title="The amount of operands to include in the formula">Length: <input id="length"
+          type="number" value="100" class="text"></label>
+      <label for="operand-ratio"
+        title="The probability that a variable (i or t) would be used instead of a number as an operand">Operand ratio:
+        <input id="operand-ratio" type="range" min="0" max="1" step="0.01" value="0.5"></label>
+      <label for="variable-ratio" title="The probability that i would be used over t">Variable ratio: <input
+          id="variable-ratio" type="range" min="0" max="1" step="0.01" value="0.1"></label>
+      <label for="bracket-chance" title="The probability that an expression would be enclosed in brackets">Bracket
+        probability: <input id="bracket-chance" type="range" min="0" max="1" step="0.01" value="0.5"></label>
+    </div>
+    <div class="buttonstop">
+      <button id="advanced" class="le-button">Code Settings</button><button id="dark" class="le-button">Toggle Dark
+        mode</button>
+      <!-- how do i make this less broken ;~; -->
+      <button id="playBtn" class="le-button">Play/Pause</button><button id="stepBtn" class="le-button">Step</button>
+    </div>
+    <span id="fps"></span>
+    <input id="formula" type="text" class="text">
+  </center><canvas id="canvas" class="canvas"></canvas>
+  <a href="/compiler/index.html" class="comptext">Compiler</a>
+  <div id="about" class="desctext"><b>About JSArt Modded</b><br>JSArt Modded is a version of <a
+      href="https://jsart.ponali.repl.co/">JSArt</a>, which is a website where you can make art with JS code.<br>To ask
+    any questions or put all your code to the JSArt Modded compiler, join the Discord server to put your foumula or ask
+    for help!<br><i>How does it work?</i><br>For each pixel, the code is ran. The code should output a number, so it can
+    be converted to hexadecimal to choose what color to pick for that pixel.<br><i>Variables</i><br>Yeah. We can't just
+    let the screen have a singular color, so we help you by making those variables you can use:<ul>
+      <li>"i" for Index (the number of pixels that are already rendered + 1)</li>
+      <li>"t" for Time (Number of frames passed)</li>
+      <li>"x" for pixel X (The X position of the pixel that is going to be rendered)</li>
+      <li>"y" for pixel Y (The Y position of the pixel that is going to be rendered)</li>
+      <li>"mx" for Mouse X</li>
+      <li>"my" for Mouse Y</li>
+      <li>"sw" for Screen Width</li>
+      <li>"sh" for Screen Height</li>
+      <li>"c" is a center gradient, a vignette specifically</li>
+      <li>"ic" is the opposite of "c", an inverted vignette</li>
+      <li>"cl" is 1 when the left mouse button i pressed, 0 otherwise</li>
+      <li>"k" is the keycode of the currently pressed key, -1 if none of the keys are being pressed</li>
+      <li>"r" is a random number generator</li>
+    </ul>Now, try to play around!</div><br>
+  <div id="projects" class="projsbody"></div>
+  </center>
+</body>
+
+</html>
