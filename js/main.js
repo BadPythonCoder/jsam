@@ -120,7 +120,7 @@ window.addEventListener("load", (function() {
 		if(running){genImg();}
 	},true)
 	document.querySelector("button#stepBtn").addEventListener("click",()=>{
-		if(running){genImg();}
+		if(!running){genImg();}
 	},true)
 	window.addEventListener("keydown",(e)=>{
 		if (ignorekeys.includes(e.keyCode)&&document.activeElement.id != "formula"){
