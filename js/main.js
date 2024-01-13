@@ -117,10 +117,10 @@ window.addEventListener("load", (function() {
 	});
 	document.querySelector("button#playBtn").addEventListener("click",()=>{
 		running=!running;
-		if(running==true){genImg();}
+		if(running){genImg();}
 	},true)
 	document.querySelector("button#stepBtn").addEventListener("click",()=>{
-		genImg();
+		if(running){genImg();}
 	},true)
 	window.addEventListener("keydown",(e)=>{
 		if (ignorekeys.includes(e.keyCode)&&document.activeElement.id != "formula"){
