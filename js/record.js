@@ -1,16 +1,17 @@
 window.onload = (()=>{
 
 let rectype = document.createElement("select");
-rectype.innerHTML="<option>4:3 using seperate image (Default 1024x768)</option><option>1:1 upscaled (768x768)</option><option>Lossy 1:1 (Depends on canvas size)</option>";
-let rctpcntnr = 0;// do later
-document.querySelector("#options")
+rectype.innerHTML="<option value=\"0\">4:3 using seperate image (Default 1024x768)</option><option value=\"1\">1:1 upscaled (768x768)</option><option value=\"2\">Lossy 1:1 (Depends on canvas size)</option>";
+let rctpcntnr = 0;rectype.addEventListener("change",(e)=>{rctpcntnr=parseInt(rectype.value);console.log(rctpcntnr);})
+document.querySelector("#options").appendChild(document.createElement("label"));
+Array.from(document.querySelector("#options").children).at(-1).setAttribute("for","record-settings");
+Array.from(document.querySelector("#options").children).at(-1).innerHTML="Record setting: ";
+Array.from(document.querySelector("#options").children).at(-1).appendChild(rectype);
 var canvas = document.querySelector("canvas#canvas");
 var recordCanvas = document.createElement("canvas");
 var rCLImage = new Image();
 rCLImage.src = "/static/jsam-record.png";
 var rctx = recordCanvas.getContext("2d");
-recordCanvas.width = 1024;
-recordCanvas.height = 768;
 var ctx = canvas.getContext("2d");
 
 var videoStream = recordCanvas.captureStream(60);
@@ -52,8 +53,20 @@ recordBtn.setAttribute("class","le-button")
 document.querySelector(".buttonstop").appendChild(recordBtn);
 let reccanvas = 0;
 function rCanvasFrame(){
-	rctx.drawImage(rCLImage,0,0,256,768);
-	rctx.drawImage(canvas,256,0,768,768);
+	rctx.imageSmoothingEnabled=false;
+	if(rctpcntnr==0){
+		recordCanvas.width = 1024;
+		recordCanvas.height = 768;
+		rctx.drawImage(rCLImage,0,0,256,768);
+		rctx.drawImage(canvas,256,0,768,768);
+	}else if(rctpcntnr==1) {
+		recordCanvas.width=recordCanvas.height=768;
+		rctx.drawImage(canvas,0,0,768,768);
+	} else {
+		recordCanvas.width=canvas.width;
+		recordCanvas.height=canvas.height;
+		rctx.drawImage(canvas,0,0);
+	}
 	if(reccanvas){window.requestAnimationFrame(rCanvasFrame);}
 }
 function downloadURI(uri, name) {
